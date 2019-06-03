@@ -1,0 +1,9 @@
+Shortcuts:
+H - hide/show magnifying glass
+F - make magnifying glass fullscreen
+A/D - make simulation run slower/faster (max of 60 cycles/sec)
+W/S - make zoom 2X larger/smaller
+G - hide GUI
+Esc - exit simulation
+
+If you see this, hi
