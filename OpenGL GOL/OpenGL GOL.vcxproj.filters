@@ -84,4 +84,39 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Shaders\bgrFS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\butFS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\cs.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\fillWithNoise.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\fs.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\magFS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\magGS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\magVS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\sliderFS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\sliderVS.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="Shaders\vs.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

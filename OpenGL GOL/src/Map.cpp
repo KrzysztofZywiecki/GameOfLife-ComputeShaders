@@ -41,8 +41,8 @@ void Map::CreateTextures(size_t x, size_t y){
 
     this->x = x;
     this->y = y;
-    workgroups_x = x/16;
-    workgroups_y = y/16;
+    workgroups_x = x/8;
+    workgroups_y = y/8;
     rect.SetDimensions({-1.0f, -1.0f}, {1.0f, 1.0f}, 0.0f);
 }
 
@@ -99,7 +99,8 @@ void Map::FillActiveTextureRandomly(float treshold){
     srand(time(nullptr));
     glBindTexture(GL_TEXTURE_2D, textures[activeTexture]);
     float* data = new float[x*y*4];
-    for(size_t i=0; i<x*y; i++){
+
+    for(float* i=data; i<data + x*y*4; i+=4){
         float color = (double)rand()/(double)RAND_MAX;
         if(color>treshold){
             color = 1.0f;
@@ -107,10 +108,10 @@ void Map::FillActiveTextureRandomly(float treshold){
         else{
             color = 0.0f;
         }
-        data[i*4] = color;
-        data[i*4+1] = color;
-        data[i*4+2] = color;
-        data[i*4+3] = 1.0f;
+        *i = color;
+        *(i + 1) = color;
+        *(i + 2) = color;
+        *(i + 3) = 1.0f;
     }
     glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, x, y, GL_RGBA, GL_FLOAT, data);
     glBindTexture(GL_TEXTURE_2D, 0);

@@ -44,6 +44,19 @@
     <ClInclude Include="include\Simulation.h" />
     <ClInclude Include="include\Slider.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Shaders\bgrFS.txt" />
+    <Text Include="Shaders\butFS.txt" />
+    <Text Include="Shaders\cs.txt" />
+    <Text Include="Shaders\fillWithNoise.txt" />
+    <Text Include="Shaders\fs.txt" />
+    <Text Include="Shaders\magFS.txt" />
+    <Text Include="Shaders\magGS.txt" />
+    <Text Include="Shaders\magVS.txt" />
+    <Text Include="Shaders\sliderFS.txt" />
+    <Text Include="Shaders\sliderVS.txt" />
+    <Text Include="Shaders\vs.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{94AEEAE1-51AD-488C-A4BA-62B22E8841EC}</ProjectGuid>

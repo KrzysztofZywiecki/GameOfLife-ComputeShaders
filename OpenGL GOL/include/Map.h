@@ -4,6 +4,7 @@
 #include "Graphics.h"
 #include "Rectangle.h"
 #include <ctime>
+#include <immintrin.h>
 
 class Map{
 public:
