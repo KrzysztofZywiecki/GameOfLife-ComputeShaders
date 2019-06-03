@@ -6,4 +6,6 @@ W/S - make zoom 2X larger/smaller
 G - hide GUI
 Esc - exit simulation
 
+Map sizes are: FullHD, 4K, 16K
+
 If you see this, hi
