@@ -1,0 +1,43 @@
+#version 450 core
+
+layout (local_size_x = 16, local_size_y = 16) in;
+
+layout(binding=0, rgba32f) uniform mediump image2D inputImage;
+layout(binding=1, rgba32f) uniform mediump image2D resultImage;
+
+uniform uint aliveConditional;
+uniform uint deadConditional;
+
+void main(){
+    ivec2 pos = ivec2(gl_GlobalInvocationID.xy);
+    vec4 color = imageLoad(inputImage, pos);
+
+    float sum = 0;
+    sum += imageLoad(inputImage, pos+ivec2(-1, 0)).x;
+    sum += imageLoad(inputImage, pos+ivec2(-1, 1)).x;
+    sum += imageLoad(inputImage, pos+ivec2(-1, -1)).x;
+    sum += imageLoad(inputImage, pos+ivec2(0, 1)).x;
+    sum += imageLoad(inputImage, pos+ivec2(0, -1)).x;
+    sum += imageLoad(inputImage, pos+ivec2(1, 1)).x;
+    sum += imageLoad(inputImage, pos+ivec2(1, 0)).x;
+    sum += imageLoad(inputImage, pos+ivec2(1, -1)).x;
+
+    if(sum!=0.0f){
+        sum = pow(2.0f, (sum-1));
+        uint temp = uint(sum);
+        uint aliveConditional_temp = aliveConditional;
+        uint deadConditional_temp = deadConditional;
+        if(color.x == 1.0f){
+            if(((aliveConditional_temp/temp)%2)==1)
+                color = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+        }
+        else{
+            if(((deadConditional_temp/temp)%2)==1)
+                color = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+    }
+    else{
+        color = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+    }
+    imageStore(resultImage, pos, color);
+}

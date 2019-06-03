@@ -1,0 +1,14 @@
+#version 450 core
+
+layout(location = 0) in vec2 pos;
+layout(location = 1) in float radious;
+layout(location = 2) in float zoom;
+
+out float out_zoom;
+out float out_radious;
+
+void main (){
+    gl_Position = vec4(pos, -0.1f, 1.0f);
+    out_zoom = zoom;
+    out_radious = radious;
+}

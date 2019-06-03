@@ -1,0 +1,36 @@
+#version 450 core
+
+in vec2 tex_coord;
+
+uniform vec3 color;
+out vec4 out_color;
+
+
+void main (){
+    vec3 lightSource = normalize(vec3(0.5f, -0.7f, 3.0f));
+    vec2 point = vec2(0.5f, 0.5f);
+
+    vec2 vector = tex_coord-point;
+    float len = max(abs(vector.x), abs(vector.y));
+
+    vector = normalize(vector);
+    vec3 vector3;
+    float angle;
+    if(len>0.4f){
+        float tg = vector.y/vector.x;
+        if(tg>-1.0f && tg<1.0f){
+            vector = normalize(vec2(vector.x, 0.0f));
+            vector3 = normalize(vec3(vector, 1.0f));
+        }
+        else{
+            vector = normalize(vec2(0.0f, vector.y));
+            vector3 = normalize(vec3(vector, 1.0f));
+        }
+        angle = (dot(vector3, lightSource)+1.0f)/2;
+    }
+    else{
+        vector3 = vec3(0.0f, 0.0f, 1.0f);
+        angle = (dot(vector3, lightSource)+1.0f)/2;
+    }
+	out_color = vec4(color*angle, 1.0f);
+}
